@@ -47,12 +47,15 @@ students = [
     {"name": "Rahim", "marks": 85},
     {"name": "Karim", "marks": 72},
     {"name": "Fatema", "marks": 90},
+    {"name": "Jamal", "marks": 95},
     {"name": "Nusrat", "marks": 65},
 ]
 # scores = [student["name"] for student in students if student["marks"] >= 80]
 # print(scores)
 def get_grade(marks):
-    if marks >= 90:
+    if marks >= 93:
+        return "A+"
+    elif marks >= 90:
         return "A"
     elif marks >= 80:
         return "B"
@@ -77,8 +80,8 @@ def get_student_with_grade(students, grade):
 
 for student in students:
     grade = get_grade(student["marks"])
-    print(f"{student['name']}= has grade {grade}")
+    print(f"{student['name']}  has grade {grade}")
 
 print(f" passed: {get_passed_students(students)}")
 print(f"Average marks: {get_avg(students)}")
-print(f"Students with grade A: {get_student_with_grade(students, 'A')}")    
+print(f"Students with grade  A+ : {get_student_with_grade(students,  'A+')}")    
