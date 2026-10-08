@@ -85,5 +85,6 @@ for student in students:
 print(f" passed: {get_passed_students(students)}")
 print(f"Average marks: {get_avg(students)}")
 print(f"Students with grade  A+ : {get_student_with_grade(students,  'A+')}")    
+print(f"Students with grade  A : {get_student_with_grade(students,  'A')}")
 
 
