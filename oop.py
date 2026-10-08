@@ -7,6 +7,8 @@ p2 =emni("jhboids", 27 )
 
 print(p1.name, p1.age)
 print(p2.name, p2.age)
+print(p1.__dict__)  
+print(p2.__dict__)  
 
 def bark(self):
     print(self.name + " woof woof")
