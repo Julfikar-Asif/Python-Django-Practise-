@@ -84,3 +84,45 @@ for i in range(row):
         print("*", end="")
     print()
 
+class Employee:
+
+    raise_amount = 1.05
+    def __init__(self, fisrt, last,pay):
+        self.fisrt = fisrt
+        self.last = last
+        self.pay = pay
+        self.email = fisrt  + last + "@company.com"
+
+    def fullname(self):
+        return '{} {}'.format(self.fisrt, self.last)
+
+    def apply_raise(self):
+        self.pay = int(self.pay * Employee.raise_amount)
+        
+
+emp1 = Employee("asif", "khan", 50000)
+emp2 = Employee("asad", "zaman", 60000)
+
+# print(emp1.email)
+# print(emp2.email)
+
+# print(emp1.fullname())
+# print(emp2.fullname())
+print(emp1.pay)
+emp1.apply_raise()
+print(emp1.pay)
+
+
+# print('{} {}'.format(emp1.fisrt, emp1.last)) 
+
+
+# def outer():
+#     def inner():
+#         print("this is inner function")
+#     print("this is outer function")
+#     return inner 
+
+
+# print(outer()())
+# # outer()()
+#Class Variable 
