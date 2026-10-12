@@ -70,23 +70,23 @@
 # p1 = Person("Tobias")
 # p1.welcome()
 
-for i in range(1, 6):
-    print("*" * i)  #right triangle
+# for i in range(1, 6):
+#     print("*" * i)  #right triangle
 
-for i in range(1,6):
-    print(" " * (5 - i) + "*" * i)  #left triangle
+# for i in range(1,6):
+#     print(" " * (5 - i) + "*" * i)  #left triangle
 
-row =6
-for i in range(row):
-    for j in range(row - i):
-        print(" ", end="")
-    for k in range(2 * i + 1):
-        print("*", end="")
-    print()
+# row =6
+# for i in range(row):
+#     for j in range(row - i):
+#         print(" ", end="")
+#     for k in range(2 * i + 1):
+#         print("*", end="")
+#     print()
 
 class Employee:
 
-    raise_amount = 1.05
+    raise_amount = 1.04
     def __init__(self, fisrt, last,pay):
         self.fisrt = fisrt
         self.last = last
@@ -97,20 +97,106 @@ class Employee:
         return '{} {}'.format(self.fisrt, self.last)
 
     def apply_raise(self):
-        self.pay = int(self.pay * Employee.raise_amount)
-        
+        self.pay = int(self.pay * self.raise_amount)
 
-emp1 = Employee("asif", "khan", 50000)
-emp2 = Employee("asad", "zaman", 60000)
+    @classmethod
+    def set_raise_amount(cls,amount):
+        cls.raise_amount = amount
+    
+    # @classmethod
+    # def from_string(cls, emp_str):
+    #     first, last, pay = emp_str.split("-")
+    #     return cls(first, last, pay)
+
+    # @staticmethod
+    # def is_workday(day):
+    #     if day.weekday() == 5 or day.weekday() == 6:
+    #         return False
+    #     return True
+
+class Developer(Employee):
+    raise_amount = 1.10
+
+    def __init__(self, fisrt, last, pay, prog_lang):
+        super().__init__(fisrt, last, pay)
+        self.prog_lang = prog_lang
+
+class Manager(Employee):
+    def __init__(self, fisrt, last, pay, employees=None):
+            super().__init__(fisrt, last, pay)
+            if employees is None:
+                self.employees = []
+            else:
+                self.employees = employees
+
+    def add_emp(self,emp):
+        if emp not in self.employees:
+            self.employees.append(emp)
+    def remove_emp(self,emp):
+        if emp in self.employees:
+            self.employees.remove(emp)
+
+    def print_emps(self):
+        for emp in self.employees:
+            print("-->", emp.fullname())
+
+
+
+
+# dev_1 = Employee("asif", "khan", 50000)
+dev_1 = Developer("asif", "khan", 50000, "python")
+dev_2= Developer("asad", "zaman", 60000, "java")
+
+man_1 = Manager("sami", "khan", 90000, [dev_1])
+print(isinstance(Manager, Developer))
+
+
+# print(man_1.email)
+# man_1.add_emp(dev_2)
+# man_1.remove_emp(dev_1)
+# man_1.print_emps()
+
+
+# print(dev_1.pay)
+# dev_1.apply_raise()
+# print(dev_1.pay)
+# print(dev_1.prog_lang)
+# print(dev_2.email)
+
+# print(help(Developer))
+   
+# print(dev_1.email)
+# print(dev_2.email)
+    
+# import datetime
+# my_date = datetime.date(2024, 6, 18)    
+
+# print(Employee.is_workday(my_date))
+
+
+# emp_str1 = "jgon-khan-50000"
+# emp_str2 = "poas-zaman-60000"   
+# emp_str3 = "kokah-khan-70000"
+
+# first, last, pay = emp_str1.split("-")
+# new_emp1 = Employee.from_string(emp_str1)
+
+# dev_1.set_raise_amount(1.04)
+
+# print(new_emp1.email)
+# print(new_emp1.pay)
 
 # print(emp1.email)
 # print(emp2.email)
 
 # print(emp1.fullname())
 # print(emp2.fullname())
-print(emp1.pay)
-emp1.apply_raise()
-print(emp1.pay)
+# print(Employee.raise_amount)
+# print(emp1.raise_amount)
+# print(emp2.raise_amount)
+# print(emp1.pay)
+# emp1.apply_raise()
+# print(emp1.pay)
 
 
 # print('{} {}'.format(emp1.fisrt, emp1.last)) 
@@ -125,4 +211,3 @@ print(emp1.pay)
 
 # print(outer()())
 # # outer()()
-#Class Variable 
