@@ -211,3 +211,44 @@ print(isinstance(Manager, Developer))
 
 # print(outer()())
 # # outer()()
+
+
+class Employee:
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+    def display(self):
+        print(" parent class method called")
+
+
+class Developer(Employee):
+    def __init__(self, name, salary, language):
+        super().__init__(name,salary)
+        self.language = language
+        super().display()
+        # এখানে super() ব্যবহার করো
+        # তারপর language initialize করো
+        
+
+
+dev = Developer("Asif", 30000, "Python")
+
+print(dev.name)
+print(dev.salary)
+print(dev.language)
+
+
+class Employee:
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+
+    def __str__(self):
+        return f"Employee Name: {self.name}, Salary: {self.salary}"
+        # এমনভাবে লিখবে যেন employee-কে
+        # print করলে নাম ও salary দেখা যায়
+        
+
+
+emp = Employee("Asif", 30000)
+print(emp)
