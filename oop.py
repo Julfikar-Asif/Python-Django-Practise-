@@ -226,8 +226,7 @@ class Developer(Employee):
         super().__init__(name,salary)
         self.language = language
         super().display()
-        # এখানে super() ব্যবহার করো
-        # তারপর language initialize করো
+
         
 
 
@@ -245,10 +244,45 @@ class Employee:
 
     def __str__(self):
         return f"Employee Name: {self.name}, Salary: {self.salary}"
-        # এমনভাবে লিখবে যেন employee-কে
-        # print করলে নাম ও salary দেখা যায়
         
+    def __add__(self,other):
+         return self.salary + other.salary
+
+    def __len__(self):
+        return len(self.name)
 
 
-emp = Employee("Asif", 30000)
-print(emp)
+emp_1 = Employee("Asif", 30000)
+emp_2 = Employee("Zaman", 40000)
+
+
+print(emp_1)
+
+print(len(emp_2))  
+
+print(emp_1 + emp_2)  # Output: 70000
+
+
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+  def __str__(self):
+    return "Person('{}', '{}')".format(self.name, self.age)
+
+  def __repr__(self):
+    return "Person('{} - '{}')".format(self.name, self.age)
+
+p1 = Person("Emil", 36)
+p2 = Person("Tobias", 30)
+
+# print(p1)
+print(repr(p1))
+print(str(p1))  # str is used to create output for end users, while repr is used for debugging and development.
+# repr(p1)  # repr mostly used for debugging and development, while str is used for creating output for end users.
+
+
+
+
+print(emp_1 + emp_2)  # Output: 70000
