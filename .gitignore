@@ -1,1 +1,11 @@
-__pycache__
+# Python cache
+__pycache__/
+*.py[cod]
+db.sqlite3
+.vscode/
+
+# Virtual environment
+.venv/
+
+# Environment variables
+.env
