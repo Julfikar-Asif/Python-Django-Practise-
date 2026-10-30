@@ -2,7 +2,9 @@
 __pycache__/
 *.py[cod]
 db.sqlite3
+..vscode/
 .vscode/
+
 
 # Virtual environment
 .venv/

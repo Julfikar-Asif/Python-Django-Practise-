@@ -1,3 +1,4 @@
 from django.contrib import admin
+from blog.models import Post   # Render posts from the database in the home view
 
-# Register your models here.
+admin.site.register(Post)
